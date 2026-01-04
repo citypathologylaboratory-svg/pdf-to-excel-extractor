@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api.py",
+      "src": "api/index.py",
       "use": "@vercel/python"
     },
     {
@@ -12,15 +12,12 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "api.py"
-    },
-    {
       "src": "/(.*)",
       "dest": "public/$1"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.py"
     }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.11"
-  }
+  ]
 }
